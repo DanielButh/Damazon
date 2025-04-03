@@ -13,6 +13,7 @@ import com.example.damazon.R
 //import com.example.damazon.databinding.FragmentFirstBinding
 import com.example.damazon.databinding.SignInFragmentBinding
 import com.example.damazon.model.SignInViewModel
+import com.example.damazon.utils.FragmentCommunicator
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -26,6 +27,7 @@ class SignInFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel by viewModels<SignInViewModel>()
     var isValid: Boolean = false
+    private lateinit var communicator: FragmentCommunicator
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +35,7 @@ class SignInFragment : Fragment() {
     ): View {
 
         _binding = SignInFragmentBinding.inflate(inflater, container, false)
+        communicator = requireActivity() as OnboardingActivity
         setupView()
         return binding.root
 
@@ -40,12 +43,9 @@ class SignInFragment : Fragment() {
 
     private fun setupView(){
         binding.loginButton.setOnClickListener{
-            if(isValid) {
-                requestLogin()
-            } else {
-                findNavController().navigate(R.id.action_signInFragment_to_SecondFragment)
-                //Toast.makeText(activity, "Ingreso no valido?", Toast.LENGTH_SHORT).show()
-            }
+            communicator.showLoader(true)
+            findNavController().navigate(R.id.action_signInFragment_to_SecondFragment)
+            //Toast.makeText(activity, "Ingreso no valido?", Toast.LENGTH_SHORT).show()
         }
         binding.emailTIET.addTextChangedListener {
             if(binding.emailTIET.text.toString().isEmpty()){

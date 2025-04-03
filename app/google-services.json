@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "567573860599",
+    "project_id": "d-21398",
+    "storage_bucket": "d-21398.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567573860599:android:29bd1726e7326e60c183f2",
+        "android_client_info": {
+          "package_name": "com.example.damazon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2RhnxJgzy0EEuLD7ZbrDpPInnmL8fzXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
