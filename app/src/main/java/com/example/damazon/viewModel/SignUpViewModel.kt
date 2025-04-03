@@ -31,7 +31,7 @@ class SignUpViewModel: ViewModel() {
                 Log.i("Firebase", "Se pudo crear el usuario")
             } ?: run {
                 // Sino, mostrarle un error
-                Log.i("Firebase", "Ocurrio un problema")
+                Log.e("Firebase", "Ocurrio un problema")
             }
         }
     }

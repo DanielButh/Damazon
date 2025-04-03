@@ -43,10 +43,18 @@ class SignInFragment : Fragment() {
 
     private fun setupView(){
         binding.loginButton.setOnClickListener{
-            communicator.showLoader(true)
+            //communicator.showLoader(true)
             findNavController().navigate(R.id.action_signInFragment_to_SecondFragment)
-            //Toast.makeText(activity, "Ingreso no valido?", Toast.LENGTH_SHORT).show()
         }
+        binding.loginButton.setOnClickListener {
+            if (isValid) {
+                Toast.makeText(activity, "Lo lograste", Toast.LENGTH_SHORT).show()
+                requestLogin()
+            } else {
+                Toast.makeText(activity, "Ingreso invalido", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         binding.emailTIET.addTextChangedListener {
             if(binding.emailTIET.text.toString().isEmpty()){
                 binding.emailTIL.error = "Por favor introduce un correo"
