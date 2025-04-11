@@ -1,4 +1,4 @@
-package com.example.damazon.view
+package com.example.damazon.view.onboarding
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.damazon.databinding.FragmentSecondBinding
-import com.example.damazon.model.SignInViewModel
 import com.example.damazon.utils.FragmentCommunicator
 import com.example.damazon.viewModel.SignUpViewModel
 
@@ -42,7 +41,6 @@ class SignUpFragment : Fragment() {
                 binding.passwordTiet.text.toString())
         }
         setupObservers()
-
     }
 
     private fun setupObservers() {

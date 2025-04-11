@@ -56,4 +56,8 @@ dependencies {
     implementation(platform(libs.firebase))
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore)
+    // retrofit
+    implementation(libs.retrofit)
+    implementation(libs.gson)
+    implementation(libs.retrofit.converter)
 }

@@ -13,19 +13,22 @@
         android:theme="@style/Theme.Damazon"
         tools:targetApi="31">
         <activity
-            android:name=".view.OnboardingActivity"
+            android:name=".HomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Damazon" />
+        <activity
+            android:name=".view.onboarding.OnboardingActivity"
             android:exported="true"
-            android:theme="@style/Theme.Damazon" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            android:theme="@style/Theme.Damazon">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".view.MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,20 @@
+package com.example.damazon.core
+
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
+
+object RetrofitInstance {
+    fun getRetrofit(): Retrofit {
+        val httpClient = OkHttpClient.Builder()
+            .connectTimeout(30, TimeUnit.SECONDS) // lo mismo de abajo, pero para conexión a internet
+            .readTimeout(60, TimeUnit.SECONDS) // Si el servidor tarda más de 60 segundo, manda una excepción de timeout
+            .build()
+        return Retrofit.Builder()
+            .baseUrl("https://fakestoreapi.com/")
+            .client(httpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+}

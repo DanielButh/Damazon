@@ -1,4 +1,4 @@
-package com.example.damazon.model
+package com.example.damazon.viewModel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -17,6 +17,9 @@ class SignInViewModel: ViewModel() {
     val loaderState: LiveData<Boolean>
         // LiveData: este tipo de dato no va a cambiar
         get() = _loaderState
+    private val _sessionValid = MutableLiveData<Boolean>()
+    val _sessionValid: LiveData<Boolean>
+        get() = _sessionValid
     private val firebase = FirebaseAuth.getInstance()
 
     fun requestSignIn(email: String, password: String) {
@@ -28,10 +31,12 @@ class SignInViewModel: ViewModel() {
             _loaderState.value = false
             result.user?.let { // Si puedo acceder al valor de lo que hay en esa propiedad, significa que la propiedad no está vacía
                 // Entonces, ejecuta esto
-                Log.i("Firebase", "Se pudo crear el usuario")
+                //Log.i("Firebase", "Se pudo crear el usuario")
+                _loaderState.value = false
             } ?: run {
                 // Sino, mostrarle un error
-                Log.e("Firebase", "Ocurrio un problema")
+                //Log.e("Firebase", "Ocurrio un problema")
+                Log.i("Firebase", "Ocurrio un problema")
             }
         }
     }

@@ -1,14 +1,9 @@
-package com.example.damazon.view
+package com.example.damazon.view.onboarding
 
 import android.os.Bundle
 import android.view.View
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.damazon.R
 import com.example.damazon.databinding.ActivityOnboardingBinding
 import com.example.damazon.utils.FragmentCommunicator
 

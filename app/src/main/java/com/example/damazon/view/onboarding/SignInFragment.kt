@@ -1,5 +1,6 @@
-package com.example.damazon.view
+package com.example.damazon.view.onboarding
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,8 +13,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.damazon.R
 //import com.example.damazon.databinding.FragmentFirstBinding
 import com.example.damazon.databinding.SignInFragmentBinding
-import com.example.damazon.model.SignInViewModel
+import com.example.damazon.viewModel.SignInViewModel
 import com.example.damazon.utils.FragmentCommunicator
+import com.example.damazon.view.MainActivity
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -37,6 +39,7 @@ class SignInFragment : Fragment() {
         _binding = SignInFragmentBinding.inflate(inflater, container, false)
         communicator = requireActivity() as OnboardingActivity
         setupView()
+        setupObservers()
         return binding.root
 
     }
@@ -69,6 +72,18 @@ class SignInFragment : Fragment() {
                 isValid = false
             } else {
                 isValid = true
+            }
+        }
+    }
+    //Última modificación
+    private fun setupObservers() {
+        viewModel.loaderState.observe(viewLifecycleOwner) { validSession ->
+            if (validSession) {
+                val intent = Intent(activity, MainActivity::class.java)
+                startActivity(intent)
+                activity?.finish()
+            } else {
+                Toast.makeText(activity, "Ingreso invalido", Toast.LENGTH_SHORT).show()
             }
         }
     }
